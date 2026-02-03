@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIKUCHI Portfolio - LEISURE</title>
+    <link rel="stylesheet" href="base.css">
+    <style>
+        /* Container grid is handled in base.css (50/50) */
+
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .gallery-card {
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            aspect-ratio: 1 / 1.5;
+            /* Tall rectangles as in the image */
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Header -->
+            <div class="header-section">
+                <div class="nav-pills">
+                    <a href="home.html" class="nav-pill">HOME</a>
+                    <a href="profile.html" class="nav-pill">PROFILE</a>
+                    <a href="leisure.html" class="nav-pill">LEISURE</a>
+                    <a href="sutudy.html" class="nav-pill">STUDY</a>
+                    <a href="works.html" class="nav-pill">WORK</a>
+                </div>
+                <h1 class="page-title">LEISURE</h1>
+                <p class="page-desc">
+                    ここは僕が遊んでるときや、休んだり<br>
+                    してる時の写真を乗せています。
+                </p>
+            </div>
+
+            <!-- Gallery Grid (8 items as per image) -->
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                </div>
+                <div class="gallery-card">
+                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                </div>
+                <div class="gallery-card">
+                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                </div>
+                <div class="gallery-card">
+                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                </div>
+                <div class="gallery-card">
+                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                </div>
+                <div class="gallery-card">
+                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                </div>
+                <div class="gallery-card">
+                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                </div>
+                <div class="gallery-card">
+                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <h2>KIKUCHI</h2>
+                <div class="footer-links">
+                    <a href="home.html">HOME</a>
+                    <a href="profile.html">PROFILE</a>
+                    <a href="leisure.html">LEISURE</a>
+                    <a href="sutudy.html">STUDY</a>
+                    <a href="works.html">WORK</a>
+                </div>
+                <div class="scroll-top"></div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

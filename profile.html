@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIKUCHI Portfolio - PROFILE</title>
+    <link rel="stylesheet" href="base.css">
+    <style>
+        /* Container grid is handled in base.css (50/50) */
+
+
+        /* Sidebar Placeholder */
+        .sidebar-placeholder {
+            background-color: #D9D9D9;
+            min-height: 800px;
+            grid-row: 1 / 5;
+            border-radius: 4px;
+        }
+
+        .profile-card-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-card {
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            padding: 30px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-placeholder {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Header -->
+            <div class="header-section">
+                <div class="nav-pills">
+                    <a href="home.html" class="nav-pill">HOME</a>
+                    <a href="profile.html" class="nav-pill">PROFILE</a>
+                    <a href="leisure.html" class="nav-pill">LEISURE</a>
+                    <a href="sutudy.html" class="nav-pill">STUDY</a>
+                    <a href="works.html" class="nav-pill">WORK</a>
+                </div>
+                <h1 class="page-title">PROFILE</h1>
+                <p class="page-desc">
+                    ここでは僕の詳しい紹介を<br>
+                    しています。
+                </p>
+            </div>
+
+            <!-- Profile Cards Stack -->
+            <div class="profile-card-stack">
+                <!-- Card 1 -->
+                <div class="profile-card">
+                    岩手県出身、盛岡情報ビジネス＆デザイン専門学校2年の菊池です。まず最初に言っておくと、
+                    よくアウトドア派に見られるんですが、あれ完全に誤解です。外で活動してるのはほぼ友だちに
+                    連れ出されてるだけで、僕自身は根っからのインドア派です。本当なら家でゲームして動画見てサウナ行って、]
+                    1日平和に終わりたいタイプです。
+                </div>
+
+                <!-- Card 2 -->
+                <div class="profile-card">
+                    普段はブロスタとか放置ゲームをしたり、謎にピアノを弾いてみたり、気まぐれで筋トレを始めてみたりしています。
+                    しかもピアノを弾くくせにクラシックはいっさい弾かない、星野源のアイデアとかVaundyの恋占いとか自由曲しか弾きません。
+                    筋トレは継続できていますが、アブローラーとダンベル上げばっかりやるせいで鏡を見るといつも体のバランスが悪い気がします。
+                    意外とこんだけしかしなくても力こぶできました。あと腹筋も少し割れました。
+                </div>
+
+                <!-- Card 3 -->
+                <div class="profile-card">
+                    サウナは僕にとってかなり大事で、頭がパンパンな時でも整うと全部リセットされる感じがします。
+                    あと、サウナ入ると次の日のおなかの調子がいい気がします。暇な時間はYouTubeは毎日見てて、
+                    特にゲーム実況と心霊スポット系の動画が好きで、何か作業しながらずっと流してます。怖いのは苦手なくせに、怖い動画は見ちゃうタイプです。
+                    ラーメンも大好きで、食べたい欲に負けて筋トレの努力がチャラになりそうな日もよくあります。健康のために散歩もちょこちょこしていますが、完全にプラマイゼロです。まあバランスを取って生きてるつもりです。
+                </div>
+
+                <!-- Card 4 -->
+                <div class="profile-card">
+                    IT系に進んだ理由は「将来性あるし稼げそう」という超シンプルな動機からでした。
+                    高校ではハンドボールばっかりやっていたので、プログラミングとは無縁の生活だったんですが、
+                    気づいたら専門学校でコードを書いています。正直まだまだ技術は初心者レベルで、
+                    これ見よがしに並べられるような作品も少ないです。でもその分、
+                    「これから伸ばしていく余地がめちゃくちゃある」と前向きに考えています。
+                </div>
+
+                <!-- Card 5 -->
+                <div class="profile-card">
+                    先生からは「作品が少ないなら文章で自分を見せなさい」と言われたので、
+                    今はこうして自分の話をしっかり書くことにチャレンジしています。
+                    自分は天才型じゃないけど、興味を持ったものはとことん触ってみるタイプです。
+                    IT業界で働くために、基礎を固めて、少しずつでも前に進めるエンジニアになりたいと思っています。
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <h2>KIKUCHI</h2>
+                <div class="footer-links">
+                    <a href="home.html">HOME</a>
+                    <a href="profile.html">PROFILE</a>
+                    <a href="leisure.html">LEISURE</a>
+                    <a href="sutudy.html">STUDY</a>
+                    <a href="works.html">WORK</a>
+                </div>
+                <div class="scroll-top"></div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
