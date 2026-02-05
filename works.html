@@ -2,136 +2,246 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIKUCHI Portfolio - WORKS</title>
-    <link rel="stylesheet" href="base.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-64UC4BEhTGwk3eGpak4nO2jqtl7liTS+juXkSJ2gPAQPmlClQO7s5UgCeR6US48g" crossorigin="anonymous">
-    <style>
-        /* Container grid is handled in base.css (50/50) */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIKUCHI Portfolio - WORKS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="works.css">
+  <style>
+    /* Container grid is handled in base.css (50/50) */
 
 
-        .category-bar {
-            background-color: var(--accent-color);
-            padding: 15px 30px;
-            border-radius: 12px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .category-bar {
+      background-color: var(--accent-color);
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .category-list {
-            list-style: none;
-            color: #fff;
-            padding: 10px 0;
-        }
+    .category-list {
+      list-style: none;
+      color: #fff;
+      padding: 10px 0;
+    }
 
-        .category-item {
-            padding: 8px 0;
-            cursor: pointer;
-            font-size: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .category-item {
+      padding: 8px 0;
+      cursor: pointer;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .category-item:hover {
-            opacity: 0.8;
-        }
+    .category-item:hover {
+      opacity: 0.8;
+    }
 
-        .works-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
 
-        .work-card {
-            background-color: var(--accent-color);
-            border-radius: 12px;
-            padding: 20px;
-            aspect-ratio: 1 / 1.4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: left;
-            position: relative;
-        }
+    .work-card {
+      background-color: var(--accent-color);
+      border-radius: 12px;
+      padding: 20px;
+      aspect-ratio: 1 / 1.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: #000;
+      /* Default text color on accent background */
+    }
 
-        .work-preview {
-            background: #fff;
-            width: 100%;
-            height: 150px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #ccc;
-            overflow: hidden;
-            /* Ensure image doesn't bleed out */
-        }
+    .work-card:hover {
+      background-color: #333;
+      /* Dark background on hover */
+      color: var(--accent-color);
+      /* Accent text on hover */
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
 
-        .work-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Prevents stretching and distortion */
-        }
+    .work-card:hover .work-title,
+    .work-card:hover .work-lang,
+    .work-card:hover div {
+      /* テキストの色は継承されるので、これは冗長かもしれませんが、確実に機能します。 */
+      color: var(--accent-color);
+    }
 
-        .work-title {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            align-self: flex-start;
-        }
+    /* Specific override if needed for elements that might have their own colors */
 
-        .work-lang {
-            font-size: 0.7rem;
-            align-self: flex-start;
-            margin-bottom: 20px;
-        }
+    .work-preview {
+      background: transparent;
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* border: 1px solid #ccc; Removed border for cleaner look */
+      overflow: hidden;
+    }
 
-        /* Specific text colors for the dark background list */
-        .text-white {
-            color: #fff;
-        }
+    .work-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        @media (max-width: 768px) {
-            .works-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .work-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      align-self: flex-start;
+    }
+
+    .work-lang {
+      font-size: 0.7rem;
+      align-self: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .text-white {
+      color: #fff;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .work-modal {
+      position: fixed;
+      top: 0;
+      right: -50%;
+      width: 50%;
+      height: 100vh;
+      background: var(--bg-color);
+      /* Dark background */
+      z-index: 2001;
+      padding: 40px;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+      color: var(--text-light);
+      /* Light text */
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .work-modal.active {
+      right: 0;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--text-light);
+      background: none;
+      border: none;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+      /* Or keep it dark? User asked for right half modal. */
+    }
+
+    .modal-meta {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 15px;
+    }
+
+    .modal-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-modal {
+        width: 100%;
+        /* Full screen on mobile */
+        right: -100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <!-- Sidebar Placeholder (Left Column) -->
-        <div class="sidebar-placeholder"></div>
+  <div class="container">
+    <!-- Sidebar Placeholder (Left Column) -->
+    <div class="sidebar-placeholder">
+      <img src="img/myphoto/works_left.JPG" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
 
-        <!-- Main Content (Right Column) -->
-        <div class="main-content">
+    <!-- Main Content (Right Column) -->
+    <div class="main-content">
 
-            <!-- Header -->
-            <div class="header-section">
-                <div class="nav-pills">
-                    <a href="home.html" class="nav-pill">HOME</a>
-                    <a href="profile.html" class="nav-pill">PROFILE</a>
-                    <a href="leisure.html" class="nav-pill">LEISURE</a>
-                    <a href="sutudy.html" class="nav-pill">STUDY</a>
-                    <a href="works.html" class="nav-pill">WORK</a>
-                </div>
-                <h1 class="page-title">WORKS</h1>
-            </div>
+      <!-- Header -->
+      <div class="header-section">
+        <div class="nav-pills">
+          <a href="home.html" class="nav-pill">HOME</a>
+          <a href="profile.html" class="nav-pill">PROFILE</a>
+          <a href="leisure.html" class="nav-pill">LEISURE</a>
+          <a href="study.html" class="nav-pill">STUDY</a>
+          <a href="works.html" class="nav-pill">WORK</a>
+        </div>
+        <h1 class="page-title">WORKS</h1>
+        <p class="page-desc">ここは僕の作った作品を展示する場所です。</p>
+      </div>
 
-            <div class="accordion" id="accordionPanelsStayOpenExample">
+      <!-- <div class="accordion" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseOne">
-                            CATEGORY<span>▼</span>
+                            CATEGORY
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
@@ -147,106 +257,583 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+
+
+      <!-- Works Grid  -->
+      <div class="works-grid">
+
+        <!-- Card 1 -->
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#card1">
+          <div class="work-preview"> <!-- Placeholder for screenshot --> <img
+              src="img/the-work/JavaFX/middle/dentak1.png" alt="Screenshot"> </div>
+          <div style="font-size:0.6rem; margin-bottom:5px;">中間課題</div>
+          <div class="work-title">高機能電卓</div>
+          <div class="work-lang">JavaFX / FXML</div>
+        </div> <!-- Modal 1 -->
+        <div class="modal fade modal-right" id="card1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel1">高機能電卓</h1> <button type="button"
+                  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-parent-img">
+                  <div id="javaFXmiddle" class="carousel slide modal-img">
+                    <div class="carousel-indicators"> <button type="button" data-bs-target="#javaFXmiddle"
+                        data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> <button
+                        type="button" data-bs-target="#javaFXmiddle" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active"> <img src="img/the-work/JavaFX/middle/dentak1.png"
+                          class="d-block w-100" alt="..."> </div>
+                      <div class="carousel-item"> <img src="img/the-work/JavaFX/middle/dentak2.png"
+                          class="d-block w-100" alt="..."> </div>
+                    </div> <button class="carousel-control-prev" type="button" data-bs-target="#javaFXmiddle"
+                      data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+                        class="visually-hidden">Previous</span> </button> <button class="carousel-control-next"
+                      type="button" data-bs-target="#javaFXmiddle" data-bs-slide="next"> <span
+                        class="carousel-control-next-icon" aria-hidden="true"></span> <span
+                        class="visually-hidden">Next</span> </button>
+                  </div>
+                  <div class="modal-desc">
+                    <p>JavaFX授業の中間課題で私は電卓アプリを制作しました。 この電卓アプリは式評価型計算形式、インクリメンタル計算形式の二つの計算形式を利用することができます。 </p>
+                    <h3>実装した機能</h3>
+                    <p> 普段使う電卓インクリメンタル計算方式は３つ以上の計算を一気にできないという欠点があります。
+                      その欠点を補うことができるのが式評価型計算方式です。式評価型計算方式なら３つ以上の計算を一気に行うことができます。この電卓アプリは主に二つの機能を使い分けることができます。 </p>
+                    <h3>制作意図</h3>
+                    <p>javaFXの授業で習った動きなどを復習するためにつくりました。僕のクラスのほぼ全員が電卓制作を選択したので、
+                      電卓を作るときに自分がわからないところがあったら友達に聞きやすいと思ったのも大きいです。中間課題の制作、あとは復習目的で電卓を作りましたが、課題提出が終わった後、この先の授業で学ぶ技術や機能をどんどん追加しやすそうだと思ったのが主な意図になります。
+                    </p>
+                    <h3>使用した技術</h3>
+                    <p>JavaFX / FXML</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <!-- Works Grid  -->
-            <div class="works-grid">
-                <!-- Card 1 -->
-                <div class="work-card">
-                    <div class="work-preview">
-                        <!-- Placeholder for screenshot -->
-                        <img src="img/dentaku.png" alt="Screenshot">
-                    </div>
-                    <div style="font-size:0.6rem; margin-bottom:5px;">中間課題</div>
-                    <div class="work-title">高機能電卓</div>
-                    <div class="work-lang">JavaFX / FXML</div>
-                </div>
+        <!-- Card 2 -->
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#card2">
+          <div class="work-preview">
+            <img src="img/the-work/C/Cmenu.png" alt="Screenshot">
+          </div>
+          <div style="font-size:0.6rem; margin-bottom:5px;">最終課題</div>
+          <div class="work-title">取引先管理システム</div>
+          <div class="work-lang">C# / SQL</div>
+        </div>
 
-                <!-- Card 2 (Empty/Placeholder) -->
-                <div class="work-card">
-                    <div class="work-preview">
-                        <!-- Placeholder for screenshot -->
-                        <img src="" alt="Screenshot">
-                    </div>
-                    <div style="font-size:0.6rem; margin-bottom:5px;">小型卓上</div>
-                    <div class="work-title">ポートフォリオ</div>
-                    <div class="work-lang">JavaFX / FXML</div>
-                </div>
+        <!-- Modal 2 -->
+        <div class="modal fade modal-right" id="card2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel2">取引先管理システム</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-parent-img">
 
-                <!-- Card 3 (Empty) -->
-                <div class="work-card">
-                    <div class="work-preview">
-                        <!-- Placeholder for screenshot -->
-                        <img src="img/animesite1.png" alt="Screenshot">
-                    </div>
-                    <div style="font-size:0.6rem; margin-bottom:5px;">小型卓上</div>
-                    <div class="work-title">アニメサイト</div>
-                    <div class="work-lang">JavaFX / FXML</div>
-                </div>
+                  <div id="CSharpFinal" class="carousel slide modal-img">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#CSharpFinal" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#CSharpFinal" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#CSharpFinal" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#CSharpFinal" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#CSharpFinal" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                      <button type="button" data-bs-target="#CSharpFinal" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
 
-                <!-- Card 4 (Empty) -->
-                <div class="work-card">
-                    <div class="work-preview">
-                        <!-- Placeholder for screenshot -->
-                        <img src="img/works.html.png" alt="Screenshot">
                     </div>
-                    <div style="font-size:0.6rem; margin-bottom:5px;">小型卓上</div>
-                    <div class="work-title">いがぐりゲーム</div>
-                    <div class="work-lang">JavaFX / FXML</div>
-                </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/the-work/C/Cmenu.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/C/Cserch.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/C/Clist.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/C/Cinsert.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/C/Cfixes.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/C/Cdelete.png" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#CSharpFinal"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#CSharpFinal"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
 
-                <!-- Card 5 (Empty) -->
-                <div class="work-card">
-                    <div class="work-preview">
-                        <!-- Placeholder for screenshot -->
-                        <img src="img/works.html.png" alt="Screenshot">
-                    </div>
-                    <div style="font-size:0.6rem; margin-bottom:5px;">授業課題</div>
-                    <div class="work-title">マリオ風2Dゲーム</div>
-                    <div class="work-lang">JavaFX / FXML</div>
+                  <div class="modal-desc">
+                    <p>C#応用の授業の最終課題で私は取引先管理システムを制作しました。
+                      このシステムは取引先を管理し、取引先の情報を表示することができます。
+                    </p>
+                    <h3>実装した機能</h3>
+                    <p>
+                      取引先の表示、検索、追加、編集、削除ができます。
+                    </p>
+                    <h3>制作意図</h3>
+                    <p>C＃の授業で習った動きなどを復習するためにつくりました。
+                      授業で学んだ知識を実際に使ってみたかったので自分にはちょうどいいタイミングでの最終課題でした。
+                      SQLの実装も必要要件になっていたので、DB接続の手順や、クエリの実行方法などを頭に入れることができたと思います。
+                    </p>
+                    <h3>使用した技術</h3>
+                    <p>C＃　SQL　Visual Studio</p>
+                  </div>
                 </div>
-
-                <!-- Card 6 (Empty) -->
-                <div class="work-card">
-                    <div class="work-preview">
-                        <!-- Placeholder for screenshot -->
-                        <img src="img/de.png" alt="Screenshot">
-                    </div>
-                    <div style="font-size:0.6rem; margin-bottom:5px;">小型卓上</div>
-                    <div class="work-title">高機能電卓</div>
-                    <div class="work-lang">JavaFX / FXML</div>
-                </div>
+              </div>
             </div>
-            <div
-                style="background:var(--accent-color); padding: 10px; border-radius: 5px; font-weight:bold; font-size:0.8rem;">
-                HOME > WORKS
-            </div>
-            <!-- Footer -->
-            <footer class="footer">
-                <h2>KIKUCHI</h2>
-                <div class="footer-links">
-                    <a href="home.html">HOME</a>
-                    <a href="profile.html">PROFILE</a>
-                    <a href="leisure.html">LEISURE</a>
-                    <a href="sutudy.html">STUDY</a>
-                    <a href="works.html">WORK</a>
+          </div>
+        </div>
+
+        <!-- Card 3  -->
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#card3">
+          <div class="work-preview">
+            <!-- Placeholder for screenshot -->
+            <img src="img/the-work/Django/booklist.png" alt="Screenshot">
+          </div>
+          <div style="font-size:0.6rem; margin-bottom:5px;">中間課題</div>
+          <div class="work-title">書籍管理アプリ</div>
+          <div class="work-lang">Django / bootstrap / Python / SQLite </div>
+        </div>
+
+        <!-- Modal 3 -->
+        <div class="modal fade modal-right" id="card3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel3">書籍投稿アプリ</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-parent-img">
+
+                  <div id="Djangomidlle" class="carousel slide modal-img">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#Djangomidlle" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#Djangomidlle" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#Djangomidlle" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/the-work/Django/booklist.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/Django/bookadd.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/Django/bookdetail.png" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#Djangomidlle"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#Djangomidlle"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-desc">
+                    <p>Djangoの授業の中間課題で私は書籍投稿アプリを制作しました。
+                      このアプリはアカウントごとに好きな書籍を入力して、投稿することができます。
+                      ほかの人の書籍を見に行くこともできます。さらにその投稿にレビューを書くことができます！
+                    </p>
+                    <h3>実装した機能</h3>
+                    <p>
+                      書籍の表示、追加、編集、削除、レビューができます。
+                    </p>
+                    <h3>制作意図</h3>
+                    <p>Djangoの授業で一人一人好きなテーマで作品を作ることになりました。
+                      当時の僕は、Djangoの授業に全然ついていけなくて設定だけで1コマ分の時間を使ってしまうくらいでした。
+                      URLルーティングなどの知識も浅かったのでできるだけ理解に徹するために簡単なテーマにしてこの課題に取組みました。
+                    </p>
+                    <h3>使用した技術</h3>
+                    <p>Django / python / bootstrap / SQLite</p>
+                  </div>
                 </div>
-                <div class="scroll-top"></div>
-            </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Card 4 -->
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#card4">
+          <div class="work-preview">
+            <!-- Placeholder for screenshot -->
+            <img src="img/the-work/Unity/catjump!/top.png" alt="Screenshot">
+          </div>
+          <div style="font-size:0.6rem; margin-bottom:5px;">課題</div>
+          <div class="work-title">CatJump!</div>
+          <div class="work-lang">Unity / C#</div>
+        </div>
+
+        <!-- Modal 4 -->
+        <div class="modal fade modal-right" id="card4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel3">Cat Jump!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-parent-img">
+
+                  <div id="UnityGame" class="carousel slide modal-img">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#UnityGame" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#UnityGame" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#UnityGame" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#UnityGame" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#UnityGame" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                      <button type="button" data-bs-target="#UnityGame" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+
+
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/the-work/Unity/catjump!/top2.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work//Unity/catjump!/act.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/Unity/catjump!/stage.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/Unity/catjump!/gameclear.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/Unity/catjump!/gameover.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/Unity/catjump!/top.png" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#UnityGame"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#UnityGame"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-desc">
+                    <p>Unityの授業の課題でCat Jump!を制作しました。
+                      このゲームはマリオ風の2Dアクションゲームで最終にある旗を目指してゴールするというゲームです。
+                    </p>
+                    <h3>実装した機能</h3>
+                    <p>
+                      猫のジャンプ、２段ジャンプ、ダッシュ、毛玉投げ、左右に動く敵、ゴール、ゲームオーバー、ステージセレクト、練習場
+                    </p>
+                    <h3>制作意図</h3>
+                    <p>
+                      このゲームはUnityの授業で初めて出された課題でかなり苦戦した記憶があります。
+                      当時の僕は、Unityが一番好きな授業ですが、キャラクターや敵を作って動かすのはとても難しいことだと感じました。
+                      自分が初めて作ったゲームの猫のキャラクターがちゃんとジャンプしたときはめちゃくちゃ感動しました。（笑）
+                      すべての機能にものすごい時間をとられるくらい難しかった。特に敵のHPバーを表示するのがトラウマです。
+
+                    </p>
+                    <h3>使用した技術</h3>
+                    <p>Unity / C#</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
 
 
+        <!-- Card 5  -->
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#card5">
+          <div class="work-preview">
+            <!-- Placeholder for screenshot -->
+            <img src="img/the-work/HTML/animesite1.png" alt="Screenshot">
+          </div>
+          <div style="font-size:0.6rem; margin-bottom:5px;">最終課題</div>
+          <div class="work-title">アニメ紹介サイト</div>
+          <div class="work-lang">HTML / CSS / Bootstrap / JavaScript</div>
+        </div>
+
+        <!-- Modal 5 -->
+        <div class="modal fade modal-right" id="card5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel3">アニメ紹介サイト</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-parent-img">
+
+                  <div id="HTMLSite" class="carousel slide modal-img">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#HTMLSite" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#HTMLSite" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#HTMLSite" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#HTMLSite" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#HTMLSite" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                      <button type="button" data-bs-target="#HTMLSite" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+                      <button type="button" data-bs-target="#HTMLSite" data-bs-slide-to="6"
+                        aria-label="Slide 7"></button>
+
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/the-work/HTML/animesite1.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/HTML/animesite2.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/HTML/animelist.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/HTML/animemylist.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/HTML/animecomunithi.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/HTML/animemodal.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/the-work/HTML/login.png" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#HTMLSite" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#HTMLSite" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-desc">
+                    <p>HTML応用の授業の最終課題で架空のアニメ紹介サイトを制作しました。
+                      この課題は先生が作った元サイトを自分なりにBootstrapをつかって
+                      ５個以上のレイアウトを変更しましょう！という課題でした。
+                      一から自分が作ったわけではないです。
+                    </p>
+                    <h3>実装した機能</h3>
+                    <p>
+                      ホーム画面、作品一覧画面、ランキング画面、マイリスト画面、コミュニティ画面、ログイン画面
+                    </p>
+                    <h3>制作意図</h3>
+                    <p>
+                      このサイトを編集するのはかなりたのしかったです。
+                      一番自分にしっくりくるのが、HTMLとCSS、Bootstrapだったので、自分が思った通りに案外すんなり編集できました。
+                      さらにこのサイト作成でGitも使ったのですが、Gitはあまり慣れていなかったのでブランチを切ったりすることで、
+                      バグ対応がものすごく楽になりました。
+                      このサイトを作って以降必ずコミットで記録をするようになりました。
+                      ちなみにこのサイトはあくまでBootstrapを習う授業だったので、いっちょ前にログイン画面があったり、
+                      ランキングやマイリストなどがありますが、
+                      全部ガワだけになっているので実際に動かないです。でもこれから実装する予定です。
+                      将来的にはちゃんとドメインを発行して実際に公開したいと思っていて今も少しずつ作成を進めています。
+
+                    </p>
+                    <h3>使用した技術</h3>
+                    <p>HTML / CSS / Bootstrap / JavaScript / Git</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#card6">
+          <div class="work-preview">
+            <!-- Placeholder for screenshot -->
+            <img src="img/the-work/JavaFX/middle/dentak1.png" alt="Screenshot">
+          </div>
+          <div style="font-size:0.6rem; margin-bottom:5px;">小型卓上</div>
+          <div class="work-title">PORTFOLIO</div>
+          <div class="work-lang">HTML / CSS / Javascript / bootstrap</div>
+        </div>
+
+        <!-- Modal 6 -->
+        <div class="modal fade modal-right" id="card6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel3">Cat Jump!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-parent-img">
+
+                  <div id="PortfolioCarousel" class="carousel slide modal-img">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#PortfolioCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#PortfolioCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#PortfolioCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#PortfolioCarousel" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#PortfolioCarousel" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
 
 
-        <!-- Breadcrumb? "HOME > WORKS" shown in other images? -->
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/myphoto/works_left.JPG" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/myphoto/works_left.JPG" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/myphoto/works_left.JPG" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/myphoto/works_left.JPG" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/myphoto/works_left.JPG" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#PortfolioCarousel"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#PortfolioCarousel"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-desc">
+                    <p>Unityの授業の課題でCat Jump!を制作しました。
+                      このWebページです。HTMLとCSS、Bootstrapを使用し、5枚のページに仕上げました。
+                      worksページのホバーアクション、モーダルや、カルーセルで画像が複数枚切り替わるところがお気に入りです。
+                      取り入れたいアイディアはまだいくつかあるのですが、実現できるスキルがないので保留状態です。
+                      手を加えればもっとよくなるサイトです。
+                    </p>
+                    <h3>実装した機能</h3>
+                    <p>
+                      home画面、Study画面、Leisure画面、Profile画面、Works画面
+                    </p>
+                    <h3>制作意図</h3>
+                    <p>
+                      授業でポートフォリオを作る授業を受けました。
+                      思ったより、画面設計に時間をとられてしまい、
+                      ほかの人よりかなり遅くに開発をスタートさせたため、先生にめちゃくちゃ心配をかけさせてしまいました。
+                      先生心配かけてすみません。
+
+                    </p>
+                    <h3>使用した技術</h3>
+                    <p>HTML / CSS / JavaScript / Bootstrap</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
+
+      </div>
+      <div
+        style="background:var(--accent-color); padding: 10px; border-radius: 5px; font-weight:bold; font-size:0.8rem;">
+        HOME > WORKS
+      </div>
+      <!-- Footer -->
+      <footer class="footer">
+        <h2>KIKUCHI</h2>
+        <div class="footer-links">
+          <a href="home.html">HOME</a>
+          <a href="profile.html">PROFILE</a>
+          <a href="leisure.html">LEISURE</a>
+          <a href="study.html">STUDY</a>
+          <a href="works.html">WORK</a>
+        </div>
+        <div class="scroll-top"></div>
+      </footer>
     </div>
+
+
+
+
+
+    <!-- Breadcrumb? "HOME > WORKS" shown in other images? -->
+
+
+
+    <!-- Modal HTML -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="work-modal" id="workModal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-content-inner">
+        <img src="" alt="" class="modal-image" id="modalImage">
+        <h2 class="modal-title" id="modalTitle">Work Title</h2>
+        <div class="modal-meta" id="modalMeta">Language / Framework</div>
+        <div class="modal-desc" id="modalDesc">
+          <p>Detailed description of the work will act here.</p>
+        </div>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-jdSIJTK9l6XwXj3RixpVDXtMcA2bFd9O81RlLAwhpr2oXRqvQP88rr16IeFXTgFE"
-        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 

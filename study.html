@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIKUCHI Portfolio - STUDY</title>
+    <link rel="stylesheet" href="base.css">
+    <style>
+        /* Container grid is handled in base.css (50/50) */
+
+
+        /* Sidebar Placeholder */
+
+
+        .profile-card-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-card {
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            padding: 30px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            font-weight: bold;
+        }
+
+        .profile-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .profile-card ul {
+            margin: 0;
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        .profile-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .profile-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-placeholder {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar-placeholder">
+            <img src="img/myphoto/study_left.JPG" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Header -->
+            <div class="header-section">
+                <div class="nav-pills">
+                    <a href="home.html" class="nav-pill">HOME</a>
+                    <a href="profile.html" class="nav-pill">PROFILE</a>
+                    <a href="leisure.html" class="nav-pill">LEISURE</a>
+                    <a href="study.html" class="nav-pill">STUDY</a>
+                    <a href="works.html" class="nav-pill">WORK</a>
+                </div>
+                <h1 class="page-title">SUTUDY</h1>
+                <p class="page-desc">
+                    学習経験のある分野・授業を載せています。
+                </p>
+            </div>
+
+
+            <!-- Curriculum Cards Stack -->
+            <div class="profile-card-stack">
+                <!-- Programming & App Development -->
+                <div class="profile-card">
+                    <h3>プログラミング・アプリケーション開発</h3>
+                    <ul>
+                        <li>Python（基礎 / 応用：Django・教師あり学習）</li>
+                        <li>Java基礎 / JavaFX</li>
+                        <li>C#基礎 / 応用</li>
+                        <li>JavaScript（Bootstrap）</li>
+                        <li>HTML & CSS応用（Bootstrap）</li>
+                        <li>デスクトップアプリ開発</li>
+                        <li>Unity基礎</li>
+                    </ul>
+                </div>
+
+                <!-- Web & Design -->
+                <div class="profile-card">
+                    <h3>Web・デザイン</h3>
+                    <ul>
+                        <li>Webデザイン</li>
+                        <li>ポートフォリオ制作</li>
+                    </ul>
+                </div>
+
+                <!-- Data, Design & Theory -->
+                <div class="profile-card">
+                    <h3>データ・設計・理論</h3>
+                    <ul>
+                        <li>データベース基礎</li>
+                        <li>アルゴリズム基礎</li>
+                        <li>UML入門</li>
+                        <li>システム設計演習</li>
+                    </ul>
+                </div>
+
+                <!-- Infrastructure & OS -->
+                <div class="profile-card">
+                    <h3>インフラ・OS</h3>
+                    <ul>
+                        <li>ネットワーク</li>
+                        <li>Linux基礎</li>
+                    </ul>
+                </div>
+
+                <!-- Development Process & IT Knowledge -->
+                <div class="profile-card">
+                    <h3>開発プロセス・IT知識</h3>
+                    <ul>
+                        <li>アジャイル開発演習</li>
+                        <li>テクノロジ</li>
+                        <li>マネジメントとストラテジ</li>
+                        <li>AIリテラシー</li>
+                        <li>応用情報対策（午後試験）</li>
+                        <li>Java Silver対策</li>
+                    </ul>
+                </div>
+
+                <!-- Business & Practical Skills -->
+                <div class="profile-card">
+                    <h3>ビジネス・実務</h3>
+                    <ul>
+                        <li>Office実務（Excel / PowerPoint）</li>
+                        <li>自己理解</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <h2>KIKUCHI</h2>
+                <div class="footer-links">
+                    <a href="home.html">HOME</a>
+                    <a href="profile.html">PROFILE</a>
+                    <a href="leisure.html">LEISURE</a>
+                    <a href="study.html">STUDY</a>
+                    <a href="works.html">WORK</a>
+                </div>
+                <div class="scroll-top"></div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -20,7 +20,15 @@
             background-color: var(--accent-color);
             border-radius: 12px;
             aspect-ratio: 1 / 1.5;
+            overflow: hidden;
             /* Tall rectangles as in the image */
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -35,7 +43,9 @@
 
     <div class="container">
         <!-- Sidebar -->
-        <div class="sidebar-placeholder"></div>
+        <div class="sidebar-placeholder">
+            <img src="img/myphoto/leisure_left.JPG" alt="" style="width: 100%; height: 100%; ">
+        </div>
 
         <!-- Main Content -->
         <div class="main-content">
@@ -46,7 +56,7 @@
                     <a href="home.html" class="nav-pill">HOME</a>
                     <a href="profile.html" class="nav-pill">PROFILE</a>
                     <a href="leisure.html" class="nav-pill">LEISURE</a>
-                    <a href="sutudy.html" class="nav-pill">STUDY</a>
+                    <a href="study.html" class="nav-pill">STUDY</a>
                     <a href="works.html" class="nav-pill">WORK</a>
                 </div>
                 <h1 class="page-title">LEISURE</h1>
@@ -56,31 +66,43 @@
                 </p>
             </div>
 
-            <!-- Gallery Grid (8 items as per image) -->
+            <!-- Gallery Grid (12 items) -->
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                    <img src="img/myphoto/IMG_2210.JPG" alt="Leisure photo 1">
                 </div>
                 <div class="gallery-card">
-                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                    <img src="img/myphoto/IMG_2211.JPG" alt="Leisure photo 2">
                 </div>
                 <div class="gallery-card">
-                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                    <img src="img/myphoto/IMG_2394.JPG" alt="Leisure photo 3">
                 </div>
                 <div class="gallery-card">
-                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                    <img src="img/myphoto/IMG_2407.JPG" alt="Leisure photo 4">
                 </div>
                 <div class="gallery-card">
-                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                    <img src="img/myphoto/IMG_2639.JPG" alt="Leisure photo 5">
                 </div>
                 <div class="gallery-card">
-                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                    <img src="img/myphoto/IMG_2644.JPG" alt="Leisure photo 6">
                 </div>
                 <div class="gallery-card">
-                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                    <img src="img/myphoto/IMG_2645.JPG" alt="Leisure photo 7">
                 </div>
                 <div class="gallery-card">
-                    <a href="https://www.instagram.com/p/B3729d7H48c/"><img src="" alt=""></a>
+                    <img src="img/myphoto/IMG_2668.JPG" alt="Leisure photo 8">
+                </div>
+                <div class="gallery-card">
+                    <img src="img/myphoto/IMG_2670.JPG" alt="Leisure photo 9">
+                </div>
+                <div class="gallery-card">
+                    <img src="img/myphoto/IMG_2671.JPG" alt="Leisure photo 10">
+                </div>
+                <div class="gallery-card">
+                    <img src="img/myphoto/IMG_2674.JPG" alt="Leisure photo 11">
+                </div>
+                <div class="gallery-card">
+                    <img src="img/myphoto/IMG_2712.JPG" alt="Leisure photo 12">
                 </div>
             </div>
 
@@ -91,7 +113,7 @@
                     <a href="home.html">HOME</a>
                     <a href="profile.html">PROFILE</a>
                     <a href="leisure.html">LEISURE</a>
-                    <a href="sutudy.html">STUDY</a>
+                    <a href="study.html">STUDY</a>
                     <a href="works.html">WORK</a>
                 </div>
                 <div class="scroll-top"></div>

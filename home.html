@@ -7,15 +7,8 @@
     <title>KIKUCHI Portfolio</title>
     <link rel="stylesheet" href="base.css">
     <style>
-        .container {
-            /* Keep gap for Home's bento grid, but full width */
-            gap: 20px;
-            padding: 20px;
-            /* Grid columns are 1fr 1fr from base.css */
-            grid-template-rows: auto auto auto auto auto;
-        }
+        /* .container uses base.css defaults */
 
-        /* Common card styles */
         .card {
             background-color: var(--accent-color);
             border-radius: 12px;
@@ -36,20 +29,8 @@
             text-transform: uppercase;
         }
 
-        /* --- Grid Areas --- */
-
-        /* 1. Sidebar (replaces Hero Left) */
-        .sidebar-placeholder {
-            grid-column: 1 / 2;
-            grid-row: 1 / -1;
-            /* Span all rows to mimic other pages sidebar */
-            /* Background etc handled by base.css class */
-        }
-
-        /* 2. Hero Right */
+        /* Hero Right */
         .hero-right {
-            grid-column: 2 / 3;
-            grid-row: 1 / 2;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -75,9 +56,8 @@
             line-height: 1.6;
         }
 
-        /* 3. Profile */
+        /* Profile */
         .profile-section {
-            grid-column: 2 / 3;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -116,26 +96,11 @@
             font-size: 0.8rem;
         }
 
-        /* 4. Leisure */
-        .leisure-section {
-            grid-column: 2 / 3;
-        }
-
-        /* 5. Study */
-        .study-section {
-            grid-column: 2 / 3;
-        }
-
-        /* 6. Works */
+        /* Works */
         .works-section {
-            grid-column: 2 / 3;
             min-height: 250px;
         }
 
-        /* Footer Override for Home Grid */
-        .footer {
-            grid-column: 2 / 3;
-        }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -144,14 +109,14 @@
                 /* Hide sidebar on mobile like other pages */
             }
 
-            .hero-right,
+            /* .hero-right,
             .profile-section,
             .leisure-section,
             .study-section,
             .works-section,
             .footer {
                 grid-column: 1 / 2;
-            }
+            } */
         }
 
         /* Icons placeholder */
@@ -180,79 +145,84 @@
 
     <div class="container">
         <!-- Hero Left -->
-        <div class="sidebar-placeholder"></div>
-
-        <!-- Hero Right -->
-        <div class="card hero-right">
-            <div class="nav-pills">
-                <a href="home.html" class="nav-pill">HOME</a>
-                <a href="profile.html" class="nav-pill">PROFILE</a>
-                <a href="leisure.html" class="nav-pill">LEISURE</a>
-                <a href="study.html" class="nav-pill">STUDY</a>
-                <a href="works.html" class="nav-pill">WORK</a>
-            </div>
-            <div class="hero-subtitle">盛岡情報ビジネス＆デザイン専門学校 2年</div>
-            <h1 class="hero-title">KIKUCHI</h1>
-            <p class="hero-desc">
-                ここは、菊池和希のポートフォリオサイトです。<br>
-                制作物、学習してきたスキルをまとめています。<br>
-                あなたに、私のことを知ってほしいと思って作りました。<br>
-                適当にサイト内を散策してください。
-            </p>
+        <div class="sidebar-placeholder">
+            <img src="img/myphoto/home_left.JPG" alt="" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
 
-        <!-- Profile -->
-        <div class="card profile-section">
-            <div class="profile-label">PROFILE</div>
-            <div class="profile-content">
-                <div class="profile-img-placeholder">画像</div>
-                <h3>20才 男性</h3>
-                <p><strong>菊池 和希</strong></p>
-                <p style="font-size: 0.8rem; margin-top: 10px;">
-                    2005年生まれ、岩手県出身。盛岡情報ビジネス＆デザイン専門学校2年。よくアウトドア派に間違えられる菊池和希です。まだまだ技術力が心細いですが、興味を持ったものはとことん触ってみるタイプです。IT業界で働くために、基礎を固めて、少しずつでも前に進めるエンジニアになりたいと思っています！
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Hero Right -->
+            <div class="card hero-right">
+                <div class="nav-pills">
+                    <a href="home.html" class="nav-pill">HOME</a>
+                    <a href="profile.html" class="nav-pill">PROFILE</a>
+                    <a href="leisure.html" class="nav-pill">LEISURE</a>
+                    <a href="study.html" class="nav-pill">STUDY</a>
+                    <a href="works.html" class="nav-pill">WORK</a>
+                </div>
+                <div class="hero-subtitle">盛岡情報ビジネス＆デザイン専門学校 2年</div>
+                <h1 class="hero-title">KIKUCHI</h1>
+                <p class="hero-desc">
+                    ここは、菊池和希のポートフォリオサイトです。<br>
+                    制作物、学習してきたスキルをまとめています。<br>
+                    あなたに、私のことを知ってほしいと思って作りました。<br>
+                    適当にサイト内を散策してください。
                 </p>
-                <a href="profile.html" class="btn">VIEW MORE</a>
             </div>
-        </div>
 
-        <!-- Leisure -->
-        <div class="card leisure-section">
-            <div class="section-title">LEISURE</div>
-            <div class="icon-group">
-                <span class="icon">♨️</span>
-                <span class="icon">🎮</span>
+            <!-- Profile -->
+            <div class="card profile-section">
+                <div class="profile-label">PROFILE</div>
+                <div class="profile-content">
+                    <!-- <div class="profile-img-placeholder">画像</div> -->
+                    <h1>20才 男性</h1>
+                    <p><strong>菊池 和希</strong></p>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">
+                        2005年生まれ、岩手県出身。盛岡情報ビジネス＆デザイン専門学校2年。よくアウトドア派に間違えられる菊池和希です。まだまだ技術力が心細いですが、興味を持ったものはとことん触ってみるタイプです。IT業界で働くために、基礎を固めて、少しずつでも前に進めるエンジニアになりたいと思っています！
+                    </p>
+                    <a href="profile.html" class="btn">VIEW MORE</a>
+                </div>
             </div>
-            <a href="leisure.html" class="btn">VIEW MORE</a>
-        </div>
 
-        <!-- Study -->
-        <div class="card study-section">
-            <div class="section-title">STUDY</div>
-            <a href="sutudy.html" class="btn">VIEW MORE</a>
-            <div class="tags">
-                <span>Java</span>
-                <span>HTML</span>
+            <!-- Leisure -->
+            <div class="card leisure-section">
+                <div class="section-title">LEISURE</div>
+                <div class="icon-group">
+                    <span class="icon">♨️</span>
+                    <span class="icon">🎮</span>
+                </div>
+                <a href="leisure.html" class="btn">VIEW MORE</a>
             </div>
-        </div>
 
-        <!-- Works -->
-        <div class="card works-section">
-            <div class="section-title">WORKS</div>
-            <a href="works.html" class="btn">VIEW MORE</a>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <h2>KIKUCHI</h2>
-            <div class="footer-links">
-                <a href="home.html">HOME</a>
-                <a href="profile.html">PROFILE</a>
-                <a href="leisure.html">LEISURE</a>
-                <a href="sutudy.html">STUDY</a>
-                <a href="works.html">WORK</a>
+            <!-- Study -->
+            <div class="card study-section">
+                <div class="section-title">STUDY</div>
+                <a href="sutudy.html" class="btn">VIEW MORE</a>
+                <div class="tags">
+                    <span>Java</span>
+                    <span>HTML</span>
+                </div>
             </div>
-            <div class="scroll-top"></div>
-        </footer>
+
+            <!-- Works -->
+            <div class="card works-section">
+                <div class="section-title">WORKS</div>
+                <a href="works.html" class="btn">VIEW MORE</a>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <h2>KIKUCHI</h2>
+                <div class="footer-links">
+                    <a href="home.html">HOME</a>
+                    <a href="profile.html">PROFILE</a>
+                    <a href="leisure.html">LEISURE</a>
+                    <a href="study.html">STUDY</a>
+                    <a href="works.html">WORK</a>
+                </div>
+                <div class="scroll-top"></div>
+            </footer>
+        </div>
 
     </div>
 

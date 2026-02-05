@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/* 右側に表示するためのカスタムクラス */
+.modal-right .modal-dialog {
+    position: fixed;
+    top: -3%;
+    right: 5%;
+    height: 95%;
+    width: 100%;
+}
+
+/* モーダルの枠線の装飾 */
+.modal-right .modal-content {
+    border-radius: 20px;
+    border: 4px solid #000;
+}
+
+/* モーダル内の画像の親要素 */
+.modal-parent-img {
+    width: 70%;
+    height: 50%;
+    margin: 0 auto;
+}
+
+.modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 10%;
+}
